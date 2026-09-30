@@ -21,6 +21,12 @@ sh JinBeiChunQiuFixToolPro2-offline.sh
 
 如提示无执行权限：`chmod 755 JinBeiChunQiuFixToolPro2-offline.sh`
 
+## 下载
+
+- 直接下载脚本：[`JinBeiChunQiuFixToolPro2-offline.sh`](JinBeiChunQiuFixToolPro2-offline.sh)
+- 或从 Releases 下载压缩包（含脚本 + 声明 + 两份许可 + 校验清单）：
+  <https://github.com/JinBeiCN/JinBeiChunQiuFixToolPro2/releases/latest>
+
 ## 校验
 
 ```sh
@@ -31,6 +37,13 @@ sh JinBeiChunQiuFixToolPro2-offline.sh --self-test           # 四项摘要 + �
 
 内置摘要只能防误改 / 传输损坏 / 漏签的二次打包，**挡不住有决心的篡改者**——
 真正可信的校验必须让期望摘要来自脚本之外（发布页或本 README）。
+
+## 许可情况
+
+- **本工具自身**（脚本本体与文档）：MIT License，Copyright (c) 2026 酷安衿蓓 —— 见 [`LICENSE`](LICENSE)
+- **随副本分发的第三方作品**：版权归各自作者，许可与声明见
+  [`THIRD-PARTY-NOTICES.txt`](THIRD-PARTY-NOTICES.txt) 与 [`LICENSES/`](LICENSES/)
+- 两者互不影响：第三方声明不因本工具自身采用 MIT 而免除，转发时两份都要保留
 
 ## 第三方开源许可声明（随副本保留）
 
