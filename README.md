@@ -41,6 +41,7 @@ sh JinBeiChunQiuFixToolPro2-offline.sh --self-test           # 四项摘要 + �
 ## 许可情况
 
 - **本工具自身**（脚本本体与文档）：MIT License，Copyright (c) 2026 酷安衿蓓 —— 见 [`LICENSE`](LICENSE)
+- 说明：`LICENSE` 只覆盖作者自己的部分（脚本本体与文档），不改变第三方作品的归属
 - **随副本分发的第三方作品**：版权归各自作者，许可与声明见
   [`THIRD-PARTY-NOTICES.txt`](THIRD-PARTY-NOTICES.txt) 与 [`LICENSES/`](LICENSES/)
 - 两者互不影响：第三方声明不因本工具自身采用 MIT 而免除，转发时两份都要保留
