@@ -1,0 +1,132 @@
+第三方代码许可声明 / THIRD-PARTY NOTICES
+JinBeiChunQiuFixToolPro2（衿蓓春秋修复工具 Pro2，作者：酷安衿蓓）
+整理日期：2026-09-30
+
+本文件随本工具的每一份发布副本一并分发（内容与 --license 的输出一致）。
+它只列出「随本工具一起分发」的第三方代码——只有这类代码才产生「版权声明
+与许可声明须随副本保留」的义务。
+
+════════════════════════════════════════════════════════════
+组件 1 · Inode-Hijacker v2.3.1 —— 完整内嵌
+════════════════════════════════════════════════════════════
+ 项目名称：Inode-Hijacker
+ 作者    ：YiJieqwq（异界）
+ 仓库    ：https://github.com/YiJieqwq/Inode-Hijacker
+ 许可    ：MIT License
+ 版权    ：Copyright (c) 2026 YiJieqwq
+
+ 分发方式：完整内嵌于下列脚本的 #@@PAYLOAD-ALLOW 放行区内，运行时提取到
+           /data/adb/JinBeiChunQiuFixToolPro2/runtime/ 执行，并在同目录
+           写入本声明（Inode-Hijacker-NOTICE.txt）：
+           · JinBeiChunQiuFixToolPro2.sh
+           · JinBeiChunQiuFixToolPro2-offline.sh
+           · JinBeiChunQiuFixToolPro2-release.sh
+
+ 上游资产：Inode-Hijacker-v2.3.1.sh
+           sha256 = 06b343a1d7ea7c98fce2fbde9f73e3baee3817c651afdc797e8b3a7342f64a9a
+
+ 内嵌副本：在上游原文的 shebang 之后补充了 27 行注释形式的 MIT 许可头
+           （版权声明 + 许可声明全文），除此之外与上游资产逐字节一致。
+           sha256 = dc0908e1330370033a11a429a38552f32fc97cb750448107f922eca7621ce5c3
+
+ 校验方式：sh 本工具 --self-test
+           · 「内置载荷哈希一致」核对内嵌副本摘要；
+           · 「内嵌副本 = 上游官方 v2.3.1 原文 + 许可头」核对其余字节。
+
+ 许可全文：
+MIT License
+
+Copyright (c) 2026 YiJieqwq
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+════════════════════════════════════════════════════════════
+组件 2 · 春秋检测项解决方案 —— 改编引用
+════════════════════════════════════════════════════════════
+ 项目名称：Chunqiu-Detector-Problem-solution
+ 作者    ：Su xiaoming（铭鐏 / mingzun09）
+ 仓库    ：https://github.com/mingzun09/Chunqiu-Detector-Problem-solution
+ 许可    ：MIT License
+ 版权    ：Copyright (c) 2026 Su xiaoming
+
+ 分发方式：改编引用（不是逐字节内嵌）。本工具下列功能改写/重排自上游的
+           文件与文档，改动后的内容随工具一起分发，因此其声明同样必须随
+           副本保留：
+           · File/shamiko_Plus.sh
+               sha256 = 5fef6a429005914e64ee4300dfe613b6765e9faafd0a78e2c4c4862475b76085
+               -> 属性隐藏开机脚本（本工具 deploy_shamiko 生成的同名脚本 + 35 条属性表）
+           · File/Found property.sh
+               sha256 = 63bdf676f229d4a5400f7324b0af06e864fcea13c366099622b3461594631285
+               -> 菜单 1「清理 logd 缓冲区属性」
+           · File/Tampered Attestation Key(26)Pass.sh
+               sha256 = c83dd0c1bdde6a97b20d7c62488ed65340c35499ef513d501a5f64a2b562e2f2
+               -> 菜单 14「生成 security_patch.txt」
+           · language/answer_zh.md
+               sha256 = be0bad66faa8324a971f1de80cf70848b2b9cb6abfd8abff20929dbfee1c9ea2
+               -> 正文命令与判据；附录 B 高危路径清单（57 条）；附录 C 被检查属性清单（32 条）；29 个词条标题与 L#### 行号参考
+
+ 改动说明：改写为 POSIX sh（去 bashism）、调整执行流程与属性表；上游原文
+           未随本工具逐字节分发，故无「内嵌副本摘要」。版权与许可归原作者。
+
+ 溯源说明：shamiko_Plus.sh 的属性集与 Shamiko / MagiskHide 族常见属性集一致
+           （社区通行做法）——属性名与多个同族项目相互重合，属社区长期共享
+           的接口数据；本工具未内嵌 Shamiko（LSPosed）的代码（该模块为闭源，
+           原 LSPosed/Shamiko 仓库现已不可访问），Shamiko 仅作为兼容与检测
+           对象。属性表的直接来源即上述春秋仓库文件，故此处按其许可署名。
+
+ 许可全文：
+MIT License
+
+Copyright (c) 2026 Su xiaoming
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+════════════════════════════════════════════════════════════
+组件 3（不产生保留义务）· 由用户主动下载的第三方脚本
+════════════════════════════════════════════════════════════
+ · ADB-Trace-Cleaner —— https://github.com/YiJieqwq/ADB-Trace-Cleaner
+ · 经「自定义直链下载」项获取的其它脚本
+
+ 这些脚本不会被本工具打包，也不会自动执行：只有用户主动下载、并在菜单中
+ 二次确认（RUN）后才会运行。其版权与许可条件以各自仓库为准，不在本文件的
+ 保留范围内。转发时请勿把它们与本工具一起打包，除非另行满足其许可。
+
+════════════════════════════════════════════════════════════
+本工具自身
+════════════════════════════════════════════════════════════
+ 除上述组件 1、组件 2 所涵盖的部分外，本工具其余代码（含运行时生成的
+ jb_usb_debug_off.sh 等）为作者酷安衿蓓的独立作品，不属于本文件的第三方
+ 声明范围。转载、二次打包时请注明作者，并完整保留本文件、LICENSES/ 目录
+ 与上述全部声明。
