@@ -30,7 +30,7 @@ sh JinBeiChunQiuFixToolPro2-offline.sh
 ## 校验
 
 ```sh
-sha256sum JinBeiChunQiuFixToolPro2-offline.sh   # 应为 318070a8e9e2351e9c44cdf3d67c24570ef2200f0fd0a682ba0cea6e0fa024da
+sha256sum JinBeiChunQiuFixToolPro2-offline.sh   # 应为 c46fa332868c1c7dba6590e0191ed3239769c2e0c4751d360111ca435f84fa0b
 sh JinBeiChunQiuFixToolPro2-offline.sh --verify <上面这串>   # 用外部摘要比对
 sh JinBeiChunQiuFixToolPro2-offline.sh --self-test           # 四项摘要 + 许可声明自检
 ```
@@ -76,4 +76,4 @@ PID 回绕 + Zygote 重启会终止应用；属性伪装与模块隔离会影响
 
 ---
 本仓库仅为离线版分发用；文件名与摘要以本 README 与 `SHA256SUMS.txt` 为准。
-生成日期：2026-09-30
+生成日期：2026-10-01

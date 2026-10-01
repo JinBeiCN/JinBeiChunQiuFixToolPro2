@@ -61,7 +61,7 @@ JB_VER='2.4.0'
 JB_EDITION='offline'
 JB_LICENSE_VER='1.0'
 JB_UPDATED='2026-09'
-SELF_SHA256='b97177cc29e58992c4850828ffbf44d410da601046f498e368297504af467554'
+SELF_SHA256='3d23c602569473ecf3bf14f95075019a1e8f611f4c2dd77428bf99b029e128d3'
 # 关键区分发（run_item 菜单 -> 动作映射）独立哈希：由 --print-hash 生成后写回；
 # 即使有人只改了菜单映射（把某个序号指向别的动作），也会被单独发现。
 JB_DISPATCH_SHA='721b3a97d6f869eb57ed23f50c3352ebcd870f7dacfaef2334c1474ad2d92989'
@@ -789,7 +789,7 @@ EOF
 # 7. 修复项：属性 / 系统状态
 # ---------------------------------------------------------------------
 f_found_property(){
-  begin_task '清理 logd 缓冲区属性' 'Found property' '1082' '低' '否'
+  begin_task '清理 logd 缓冲区属性' 'Found property' '1089' '低' '否'
   step '读取当前值'
   for p in persist.logd.size persist.logd.size.crash persist.logd.size.system persist.logd.size.main; do
     printf '        %s = [%s]\n' "$p" "$(getprop "$p" 2>/dev/null)"
@@ -806,7 +806,7 @@ f_found_property(){
 }
 
 f_avb(){
-  begin_task '修正 avb 版本属性' 'avb校验异常 avb=2.0' '1099' '低' '是'
+  begin_task '修正 avb 版本属性' 'avb校验异常 avb=2.0' '1106' '低' '是'
   step '读取 ro.boot.avb_version'
   run getprop ro.boot.avb_version
   step '写入 1.3（resetprop，不落盘）'
@@ -849,7 +849,7 @@ f_lock_props(){
 }
 
 f_vold(){
-  begin_task '删除 Vold 隔离开关属性' 'Vold隔离已开启' '1246' '低' '是'
+  begin_task '删除 Vold 隔离开关属性' 'Vold隔离已开启' '1253' '低' '是'
   step '读取当前值'
   run getprop persist.sys.vold_app_data_isolation_enabled
   step '删除该属性（resetprop -p --delete）'
@@ -880,7 +880,7 @@ f_usb_off(){
 }
 
 f_prop_scan(){
-  begin_task '属性伪装残留扫描' '环境伪造' '1207' '只读' '否'
+  begin_task '属性伪装残留扫描' '环境伪造' '1214' '只读' '否'
   step '扫描 pihooks / pixelprops / spoof 残留'
   run sh -c 'getprop | grep -iE "pihooks|pixelprops|spoof" || echo "(无匹配)"'
   step '提示'
@@ -1443,7 +1443,7 @@ vendor.boot.bootmode|unknown|contains:recovery
 EOF
 }
 f_shamiko_apply(){
-  begin_task '立即应用属性伪装（运行态，35 条）' 'Property Modified（数字代表几处属性修改）' '1090' '中' '否'
+  begin_task '立即应用属性伪装（运行态，35 条）' 'Property Modified（数字代表几处属性修改）' '1097' '中' '否'
   if [ "$RP_MODE" = 'none' ]; then ng 'resetprop / ksud 不可用，无法应用'; done_task '跳过'; return 1; fi
   step '备份当前值（快照）'
   _bk="$JB_BASE/backup/$(date +%Y%m%d-%H%M%S)-shamiko-plus.properties"
@@ -1470,7 +1470,7 @@ f_shamiko_apply(){
   done_task '完成；重启前后可在「工具（查看备份）」里找到快照。'
 }
 deploy_shamiko(){
-  begin_task '部署属性隐藏开机脚本 shamiko_Plus.sh' 'Property Modified（数字代表几处属性修改）' '1090' '中' '是'
+  begin_task '部署属性隐藏开机脚本 shamiko_Plus.sh' 'Property Modified（数字代表几处属性修改）' '1097' '中' '是'
   ensure_service_d || { done_task '跳过'; return 0; }
   step '生成脚本内容'
   JB_OUT="$JB_TMP/shamiko.$$"
@@ -1531,7 +1531,7 @@ remove_service_d(){
 # 12. 诊断与信息收集
 # ---------------------------------------------------------------------
 f_check_props(){
-  begin_task '检查正文附录 C 的被检查属性' '内核 / 属性与系统特征检测' '1427（附录 C）' '只读' '否'
+  begin_task '检查正文附录 C 的被检查属性' '内核 / 属性与系统特征检测' '1434（附录 C）' '只读' '否'
   step '逐项打印'
   cat <<'EOF' >"$JB_TMP/props_list.txt"
 dalvik.vm.dex2oat-flags
@@ -2708,7 +2708,7 @@ f_dirty_device(){
 
 # ---- 修复（环境伪造）：pihooks / pixelprops / spoof 属性残留清理 ----
 f_env_fake(){
-  begin_task '清理属性伪装残留' '环境伪造' '1207' '中' '否'
+  begin_task '清理属性伪装残留' '环境伪造' '1214' '中' '否'
   step '扫描残留属性'
   _raw="$(getprop 2>/dev/null | grep -iE 'pihooks|pixelprops|spoof')"
   if [ -z "$_raw" ]; then info '未发现 pihooks / pixelprops / spoof 残留'; done_task '完成'; return 0; fi
@@ -3178,12 +3178,12 @@ entry_label(){
 }
 entry_ref(){
   case "$1" in
-    1) printf '%s' 'L1082' ;;
-    2) printf '%s' 'L1099' ;;
+    1) printf '%s' 'L1089' ;;
+    2) printf '%s' 'L1106' ;;
     3) printf '%s' 'L566' ;;
     4) printf '%s' 'L534' ;;
     5) printf '%s' 'L547' ;;
-    6) printf '%s' 'L1246' ;;
+    6) printf '%s' 'L1253' ;;
     7) printf '%s' 'L1042' ;;
     8) printf '%s' 'L866' ;;
     9) printf '%s' 'L879' ;;
@@ -3201,9 +3201,9 @@ entry_ref(){
     21) printf '%s' 'L926' ;;
     22) printf '%s' 'L995' ;;
     23) printf '%s' 'L753' ;;
-    24) printf '%s' 'L1090' ;;
+    24) printf '%s' 'L1097' ;;
     25) printf '%s' 'L761' ;;
-    26) printf '%s' 'L1207' ;;
+    26) printf '%s' 'L1214' ;;
     27) printf '%s' 'L230' ;;
     28) printf '%s' 'L218' ;;
     *) printf '' ;;

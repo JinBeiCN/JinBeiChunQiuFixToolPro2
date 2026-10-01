@@ -1,6 +1,6 @@
 第三方代码许可声明 / THIRD-PARTY NOTICES
 JinBeiChunQiuFixToolPro2（衿蓓春秋修复工具 Pro2，作者：酷安衿蓓）
-整理日期：2026-09-30
+整理日期：2026-10-01
 
 本文件随本工具的每一份发布副本一并分发（内容与 --license 的输出一致）。
 它只列出「随本工具一起分发」的第三方代码——只有这类代码才产生「版权声明
@@ -78,7 +78,7 @@ SOFTWARE.
                sha256 = c83dd0c1bdde6a97b20d7c62488ed65340c35499ef513d501a5f64a2b562e2f2
                -> 菜单 14「生成 security_patch.txt」
            · language/answer_zh.md
-               sha256 = be0bad66faa8324a971f1de80cf70848b2b9cb6abfd8abff20929dbfee1c9ea2
+               sha256 = cff065233b3e016e1039ca61e3689d92705717458f67bfa1a5347d7f370418d2
                -> 正文命令与判据；附录 B 高危路径清单（57 条）；附录 C 被检查属性清单（32 条）；29 个词条标题与 L#### 行号参考
 
  改动说明：改写为 POSIX sh（去 bashism）、调整执行流程与属性表；上游原文
